@@ -64,11 +64,25 @@ button {
 
 <textarea id="answer" placeholder="Write your answer here"></textarea><br>
 
-<button onclick="sendData()">Send Live to Teacher</button>
+
 <div style="text-align:center; margin:40px;">
   <button onclick="sendData()" style="padding:15px 25px;background:#4f46e5;color:white;border:none;border-radius:10px;font-size:16px;">
     Send Live to Teacher
   </button>
 </div>
+  <script>
+function sendData() {
+  const name = document.getElementById("name").value;
+  const answer = document.getElementById("answer").value;
+
+  addDoc(collection(db, "responses"), {
+    name: name,
+    answer: answer,
+    time: new Date()
+  });
+
+  alert("Sent to teacher ✅");
+}
+</script>
 </body>
 </html>

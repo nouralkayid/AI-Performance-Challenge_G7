@@ -708,6 +708,40 @@ function resetWorksheet(){
 createRows();
 updateProgress();
 </script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  onSnapshot,
+  query,
+  orderBy,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCEnCi2w8q28jDL9khfZxR8m6Mu6GtQeN0",
+  authDomain: "ai-worksheet-g7.firebaseapp.com",
+  projectId: "ai-worksheet-g7",
+  storageBucket: "ai-worksheet-g7.firebasestorage.app",
+  messagingSenderId: "57789632933",
+  appId: "1:57789632933:web:1128054ff11b66e785184c"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+  // done
+
+window.db = db;
+window.firebaseTools = {
+  collection,
+  addDoc,
+  onSnapshot,
+  query,
+  orderBy,
+  serverTimestamp
+};
+</script>
 </body>
 </html>
